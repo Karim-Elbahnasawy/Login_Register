@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/core/utils/consntants.dart';
 import 'package:login_register/core/utils/styles.dart';
+import 'package:login_register/widgets/login_bottom_sheet.dart';
 import 'package:login_register/widgets/register_bottom_sheet.dart';
 import '../widgets/custom_elvated_button.dart';
 
@@ -81,7 +82,22 @@ class HomeView extends StatelessWidget {
                     height: 60,
                     child: CustomElvatedButton(
                       borderSide: const Color(0xffFFDE69),
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(
+                                  100,
+                                ),
+                                topRight: Radius.circular(
+                                  100,
+                                ),
+                              ),
+                            ),
+                            builder: (context) => const LoginBottomSheet());
+                      },
                       backgroundColor: kPrimaryColor,
                       color: const Color(0xffFFDE69),
                       text: 'Login',
