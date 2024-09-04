@@ -8,12 +8,14 @@ class CustomElvatedButton extends StatelessWidget {
     required this.backgroundColor,
     required this.color,
     required this.onPressed,
+    required this.borderSide,
   });
 
   final String text;
   final Color backgroundColor;
   void Function()? onPressed;
   final Color color;
+  final Color borderSide;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,8 @@ class CustomElvatedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         backgroundColor: backgroundColor,
-        side: const BorderSide(
-          color: Color(0xffFFDE69),
-          width: 2.5,
+        side: BorderSide(
+          color: borderSide,
         ),
       ),
       onPressed: onPressed,
