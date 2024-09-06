@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../core/utils/styles.dart';
 
 class CustomElvatedButton extends StatelessWidget {
-  CustomElvatedButton({
+  const CustomElvatedButton({
     super.key,
     required this.text,
     required this.backgroundColor,
@@ -13,7 +13,7 @@ class CustomElvatedButton extends StatelessWidget {
 
   final String text;
   final Color backgroundColor;
-  void Function()? onPressed;
+  final void Function()? onPressed;
   final Color color;
   final Color borderSide;
 

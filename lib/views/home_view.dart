@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/core/utils/consntants.dart';
 import 'package:login_register/core/utils/styles.dart';
-import 'package:login_register/widgets/login_bottom_sheet.dart';
-import 'package:login_register/widgets/register_bottom_sheet.dart';
-import '../widgets/custom_elvated_button.dart';
+import '../widgets/open_bottom_sheet_login.dart';
+import '../widgets/open_bottom_sheet_register.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,100 +12,52 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 28,
-            ),
-            Image.asset(
-              'assets/images/p1.png',
-              width: 500,
-              fit: BoxFit.fitWidth,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 47),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Welcome',
-                    style: Styles.textStyle36.copyWith(
-                      color: const Color(0xffEF5858),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    ' Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit, sed \n                 do eiusmod',
-                    style: Styles.textStyle20.copyWith(
-                      color: Colors.white.withOpacity(.5),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 70,
-                  ),
-                  SizedBox(
-                    width: 281,
-                    height: 60,
-                    child: CustomElvatedButton(
-                      borderSide: kPrimaryColor,
-                      onPressed: () {
-                        showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  100,
-                                ),
-                                topRight: Radius.circular(
-                                  100,
-                                ),
-                              ),
-                            ),
-                            builder: (context) => const RegisterBottomSheet());
-                      },
-                      backgroundColor: const Color(0xffFFDE69),
-                      color: const Color(0xff1B1A40),
-                      text: 'Create Account',
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  SizedBox(
-                    width: 281,
-                    height: 60,
-                    child: CustomElvatedButton(
-                      borderSide: const Color(0xffFFDE69),
-                      onPressed: () {
-                        showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(
-                                  100,
-                                ),
-                                topRight: Radius.circular(
-                                  100,
-                                ),
-                              ),
-                            ),
-                            builder: (context) => const LoginBottomSheet());
-                      },
-                      backgroundColor: kPrimaryColor,
-                      color: const Color(0xffFFDE69),
-                      text: 'Login',
-                    ),
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 28,
               ),
-            ),
-          ],
+              Image.asset(
+                'assets/images/p1.png',
+                width: 500,
+                fit: BoxFit.fitWidth,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 47),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Welcome',
+                      style: Styles.textStyle36.copyWith(
+                        color: const Color(0xffEF5858),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      ' Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit, sed \n                 do eiusmod',
+                      style: Styles.textStyle20.copyWith(
+                        color: Colors.white.withOpacity(.5),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    const OpenBottomSheetRegister(),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const OpenBottomSheetLogin(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

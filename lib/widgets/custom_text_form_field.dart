@@ -3,18 +3,21 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final String labelText;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
+
+  final TextInputType keyboardType;
   const CustomTextFormField({
     super.key,
     required this.hintText,
-    this.controller,
+    required this.controller,
     this.obscureText = false,
     this.validator,
     this.suffixIcon,
     required this.labelText,
+    required this.keyboardType,
   });
 
   @override
@@ -22,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        keyboardType: keyboardType,
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -35,6 +39,20 @@ class CustomTextFormField extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(
               color: Color(0xff050522),
+              width: 2.5,
+            ),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(
+              color: Colors.red,
+              width: 2.5,
+            ),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(
+              color: Colors.red,
               width: 2.5,
             ),
           ),
